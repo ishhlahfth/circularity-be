@@ -66,7 +66,7 @@ class PaymentBusinessLayer extends GenericBusinessLayer
             Mail::to($email)->send(new MailPayment($details));
 
             $response = new ResponseCreatorPresentationLayer(200, 'Payment Successfully Made', $payment);
-        } catch (Exception $e) {
+        } catch (ThrowableUtils $e) {
             $response = new ResponseCreatorPresentationLayer(500, 'Error Server', $e);
         }
         return $response->getResponse();
