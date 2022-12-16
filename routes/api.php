@@ -21,7 +21,7 @@ Route::group(['prefix' => 'test', 'namespace' => 'Test'], function(){
     Route::get('test', [TestController::class, 'testGet']);
 });
 
-Route::group(['prefix' =>'dashboard'], function(){
+Route::group(['prefix' =>'v1'], function(){
     Route::get('customers', [CustomersController::class, 'getAllCustomers']);
     Route::post('invoice', [InvoiceController::class, 'generatePayment']);
 });
