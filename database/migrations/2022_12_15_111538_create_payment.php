@@ -19,7 +19,7 @@ return new class extends Migration
             $table->foreignId('customer_id')->constrained();
             $table->foreignId('program_id')->constrained();
             $table->string('ext_program_id');
-            $table->string('payment_url');
+            $table->longText('payment_url');
             $table->datetime('expired_date')->nullable();
             $table->integer('total_amount');
             $table->datetime('paid_date')->nullable();
