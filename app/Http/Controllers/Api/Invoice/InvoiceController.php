@@ -7,6 +7,7 @@ use App\BusinessLayer\PaymentBusinessLayer;
 use App\DTO\PaymentDTO;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class InvoiceController extends Controller {
     private $invoiceBusinessLayer;
@@ -23,6 +24,7 @@ class InvoiceController extends Controller {
         $params->setProgramId($request->input('program_id'));
 
         $result = $this->paymentBusinessLayer->generatePayment($params);
-        return response()->json($result, $result['code']);
+        // return response()->json($result, $result['code']);
+        return Redirect::to($result['data']->payment_url);
     }
 }
